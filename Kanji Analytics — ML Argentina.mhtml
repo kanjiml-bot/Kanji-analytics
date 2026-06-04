@@ -1,0 +1,700 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: file:///C:/Users/marti/Downloads/kanji_final_1.html
+Subject: =?utf-8?Q?Kanji=20Analytics=20=E2=80=94=20ML=20Argentina?=
+Date: Thu, 4 Jun 2026 15:55:59 -0300
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--05Evd9KXlGU3XoYvd5H9iejWuONB5aN0KC0WrQHe4T----"
+
+
+------MultipartBoundary--05Evd9KXlGU3XoYvd5H9iejWuONB5aN0KC0WrQHe4T----
+Content-Type: text/html
+Content-ID: <frame-A47E3415D25EEABEE56A2D2D1E33097A@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/Users/marti/Downloads/kanji_final_1.html
+
+<!DOCTYPE html><!-- saved from url=3D(0045)file:///C:/Users/marti/Downloads=
+/index_9.html --><html lang=3D"es"><head><meta http-equiv=3D"Content-Type" =
+content=3D"text/html; charset=3DUTF-8"><link rel=3D"stylesheet" type=3D"tex=
+t/css" href=3D"cid:css-b52130e9-4403-4517-94e1-84064fbecdf3@mhtml.blink" />
+
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0">
+<title>Kanji Analytics =E2=80=94 ML Argentina</title>
+
+
+
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id=3D"login-screen">
+  <div class=3D"login-wrap">
+    <div class=3D"login-logo">
+      <div class=3D"login-logo-mark">Kanji Analytics</div>
+      <div class=3D"login-logo-sub">Canal Mercado Libre Argentina</div>
+    </div>
+    <div class=3D"login-box">
+      <h2>Ingresar</h2>
+      <div class=3D"field">
+        <label>Usuario</label>
+        <input type=3D"text" id=3D"u" placeholder=3D"usuario" autocomplete=
+=3D"username">
+      </div>
+      <div class=3D"field">
+        <label>Contrase=C3=B1a</label>
+        <input type=3D"password" id=3D"p" placeholder=3D"=E2=80=A2=E2=80=A2=
+=E2=80=A2=E2=80=A2=E2=80=A2=E2=80=A2=E2=80=A2=E2=80=A2" autocomplete=3D"cur=
+rent-password">
+      </div>
+      <button class=3D"login-btn">Ingresar</button>
+      <div class=3D"login-error" id=3D"login-err">Usuario o contrase=C3=B1a=
+ incorrectos</div>
+      <div class=3D"login-note">Uso interno =E2=80=94 FAG Sistems SA</div>
+    </div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id=3D"app" style=3D"display:none;flex-direction:column;min-height:100v=
+h">
+  <div class=3D"topbar">
+    <div class=3D"topbar-left">
+      <div class=3D"topbar-brand">Kanji Analytics <span>ML Argentina</span>=
+</div>
+      <div class=3D"loading-badge" id=3D"loading-badge"><div class=3D"spin"=
+></div> Cargando datos...</div>
+    </div>
+    <div class=3D"topbar-right">
+      <select class=3D"week-select" id=3D"week-sel"></select>
+      <button class=3D"topbar-btn">Salir</button>
+    </div>
+  </div>
+
+  <div class=3D"nav">
+    <div class=3D"nav-tab active">Canal general</div>
+    <div class=3D"nav-tab">Sellers</div>
+    <div class=3D"nav-tab">Categor=C3=ADas</div>
+    <div class=3D"nav-tab">Items</div>
+    <div class=3D"nav-tab">Informe por seller</div>
+    <div class=3D"nav-tab" style=3D"margin-left:auto;color:var(--text3);fon=
+t-size:12px">=E2=86=BA Recargar</div>
+  </div>
+
+  <div class=3D"main">
+
+    <!-- CANAL -->
+    <div id=3D"sec-canal" class=3D"section active">
+      <div id=3D"hotsale-banner" class=3D"hotsale-banner" style=3D"display:=
+none">
+        =F0=9F=94=A5 Semana de Hot Sale =E2=80=94 Los valores de esta seman=
+a est=C3=A1n influenciados por el evento. Comparar con semanas normales con=
+ cautela.
+      </div>
+      <div class=3D"kpi-grid" id=3D"kpi-grid"></div>
+      <div class=3D"panels-grid">
+        <div class=3D"panel">
+          <div class=3D"panel-title">Facturaci=C3=B3n semanal</div>
+          <div class=3D"panel-sub">Evoluci=C3=B3n en millones de pesos ($M)=
+ =E2=80=94 l=C3=ADnea punteada: proyecci=C3=B3n 3 semanas (promedio m=C3=B3=
+vil, excluye semanas de Hot Sale)</div>
+          <div class=3D"chart-box"><canvas id=3D"ch-fac"></canvas></div>
+        </div>
+        <div class=3D"panel">
+          <div class=3D"panel-title">Unidades vendidas</div>
+          <div class=3D"panel-sub">Evoluci=C3=B3n por semana =E2=80=94 l=C3=
+=ADnea punteada: proyecci=C3=B3n 3 semanas (promedio m=C3=B3vil, excluye se=
+manas de Hot Sale)</div>
+          <div class=3D"chart-box"><canvas id=3D"ch-uni"></canvas></div>
+        </div>
+        <div class=3D"panel">
+          <div class=3D"panel-title">Tasa de conversi=C3=B3n (CVR)</div>
+          <div class=3D"panel-sub">% de visitas que terminan en compra =E2=
+=80=94 disponible desde S13</div>
+          <div class=3D"chart-box"><canvas id=3D"ch-cvr"></canvas></div>
+        </div>
+        <div class=3D"panel">
+          <div class=3D"panel-title">Full Share</div>
+          <div class=3D"panel-sub">% de unidades vendidas con log=C3=ADstic=
+a Full de ML</div>
+          <div class=3D"chart-box"><canvas id=3D"ch-full"></canvas></div>
+        </div>
+      </div>
+      <div class=3D"panel panel-full" style=3D"margin-bottom:1rem">
+        <div class=3D"panel-title" style=3D"margin-bottom:1rem">Conclusione=
+s =E2=80=94 semana seleccionada</div>
+        <div class=3D"concl" id=3D"concl-canal"></div>
+      </div>
+    </div>
+
+    <!-- SELLERS -->
+    <div id=3D"sec-sellers" class=3D"section">
+      <div class=3D"filters">
+        <input type=3D"text" id=3D"seller-search" placeholder=3D"Buscar sel=
+ler...">
+        <select id=3D"seller-sort">
+          <option value=3D"fac">Por facturaci=C3=B3n</option>
+          <option value=3D"uni">Por unidades</option>
+          <option value=3D"cvr">Por CVR</option>
+          <option value=3D"full">Por Full Share</option>
+        </select>
+      </div>
+      <div class=3D"panel" style=3D"margin-bottom:1rem">
+        <div class=3D"tbl-wrap">
+          <table class=3D"tbl">
+            <thead><tr>
+              <th>Seller</th><th>Facturaci=C3=B3n</th><th>Var. vs sem. ant.=
+</th>
+              <th>Unidades</th><th>CVR</th><th>Full Share</th><th>Visitas</=
+th><th>Diagn=C3=B3stico</th>
+            </tr></thead>
+            <tbody id=3D"sellers-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class=3D"panels-grid">
+        <div class=3D"panel">
+          <div class=3D"panel-title">Full Share por seller</div>
+          <div class=3D"panel-sub">Semana seleccionada</div>
+          <div class=3D"chart-box"><canvas id=3D"ch-sel-full"></canvas></di=
+v>
+        </div>
+        <div class=3D"panel">
+          <div class=3D"panel-title">Facturaci=C3=B3n por seller</div>
+          <div class=3D"panel-sub">Semana seleccionada ($M)</div>
+          <div class=3D"chart-box"><canvas id=3D"ch-sel-fac"></canvas></div=
+>
+        </div>
+      </div>
+      <div class=3D"panel panel-full">
+        <div class=3D"panel-title" style=3D"margin-bottom:1rem">Evoluci=C3=
+=B3n de facturaci=C3=B3n por seller</div>
+        <div class=3D"panel-sub">Todas las semanas disponibles</div>
+        <div class=3D"chart-box" style=3D"height:260px"><canvas id=3D"ch-se=
+l-evo"></canvas></div>
+      </div>
+    </div>
+
+    <!-- CATEGOR=C3=8DAS -->
+    <div id=3D"sec-cats" class=3D"section">
+      <div class=3D"filters">
+        <input type=3D"text" id=3D"cat-search" placeholder=3D"Buscar catego=
+r=C3=ADa...">
+        <select id=3D"cat-sort">
+          <option value=3D"fac">Por facturaci=C3=B3n</option>
+          <option value=3D"uni">Por unidades</option>
+          <option value=3D"cvr">Por CVR</option>
+        </select>
+      </div>
+      <div class=3D"panel" style=3D"margin-bottom:1rem">
+        <div class=3D"tbl-wrap">
+          <table class=3D"tbl">
+            <thead><tr>
+              <th>Categor=C3=ADa</th><th>Fac. sem. ant.</th><th>Facturaci=
+=C3=B3n</th>
+              <th>Var. fac.</th><th>Unidades</th><th>Var. unid.</th><th>CVR=
+</th><th>Full Share</th>
+            </tr></thead>
+            <tbody id=3D"cats-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div class=3D"panels-grid">
+        <div class=3D"panel">
+          <div class=3D"panel-title">Facturaci=C3=B3n por categor=C3=ADa</d=
+iv>
+          <div class=3D"panel-sub">Top 10 =E2=80=94 semana seleccionada ($M=
+)</div>
+          <div class=3D"chart-box" style=3D"height:240px"><canvas id=3D"ch-=
+cats-fac"></canvas></div>
+        </div>
+        <div class=3D"panel">
+          <div class=3D"panel-title">Unidades por categor=C3=ADa</div>
+          <div class=3D"panel-sub">Top 10 =E2=80=94 semana seleccionada</di=
+v>
+          <div class=3D"chart-box" style=3D"height:240px"><canvas id=3D"ch-=
+cats-uni"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ITEMS -->
+    <div id=3D"sec-items" class=3D"section">
+      <div class=3D"filters">
+        <input type=3D"text" id=3D"item-search" placeholder=3D"Buscar produ=
+cto o seller...">
+        <select id=3D"item-cat-filter"><option value=3D"">Todas las categor=
+=C3=ADas</option></select>
+        <select id=3D"item-sort">
+          <option value=3D"fac">Por facturaci=C3=B3n</option>
+          <option value=3D"uni">Por unidades</option>
+          <option value=3D"cvr">Por CVR</option>
+        </select>
+      </div>
+      <div class=3D"panel">
+        <div class=3D"tbl-wrap">
+          <table class=3D"tbl">
+            <thead><tr>
+              <th>#</th><th>Producto</th><th>Seller</th><th>Categor=C3=ADa<=
+/th>
+              <th>Facturaci=C3=B3n</th><th>Var. vs ant.</th><th>Unidades</t=
+h><th>CVR</th><th>Full</th>
+              <th title=3D"Stock declarado por el seller en ML. No verifica=
+do =E2=80=94 puede diferir del stock real.">Stock *</th>
+            </tr></thead>
+            <tbody id=3D"items-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+      <div style=3D"font-size:11px;color:var(--text3);margin-top:8px;paddin=
+g:0 4px">
+        * Stock declarado por el seller en Mercado Libre. No es stock verif=
+icado =E2=80=94 puede diferir del inventario real disponible.
+        Solo disponible desde la semana en que se incorpor=C3=B3 este dato =
+al reporte.
+      </div>
+    </div>
+
+  <!-- INFORME POR SELLER -->
+    <div id=3D"sec-seller-report" class=3D"section">
+      <div style=3D"display:flex;gap:12px;align-items:center;margin-bottom:=
+1.25rem;flex-wrap:wrap">
+        <select id=3D"report-seller-sel" style=3D"padding:8px 12px;border:1=
+.5px solid var(--border2);border-radius:var(--radius3);font-size:13px;font-=
+family:inherit;outline:none;min-width:220px">
+          <option value=3D"">=E2=80=94 Eleg=C3=AD un seller =E2=80=94</opti=
+on>
+        </select>
+        <div style=3D"font-size:12px;color:var(--text2)">Per=C3=ADodo: S1 a=
+ S21 de 2026</div>
+      </div>
+
+      <div id=3D"seller-report-empty" style=3D"text-align:center;padding:4r=
+em;color:var(--text3)">
+        <div style=3D"font-size:2rem;margin-bottom:8px">=F0=9F=93=8A</div>
+        <div style=3D"font-size:13px">Seleccion=C3=A1 un seller para ver su=
+ informe</div>
+      </div>
+
+      <div id=3D"seller-report-content" style=3D"display:none">
+        <!-- KPIs del seller -->
+        <div class=3D"kpi-grid" id=3D"report-kpis" style=3D"margin-bottom:1=
+.25rem"></div>
+
+        <!-- Gr=C3=A1ficos evoluci=C3=B3n -->
+        <div class=3D"panels-grid" style=3D"margin-bottom:1rem">
+          <div class=3D"panel">
+            <div class=3D"panel-title">Facturaci=C3=B3n semanal</div>
+            <div class=3D"panel-sub">Evoluci=C3=B3n S1=E2=80=93S21 en millo=
+nes de pesos</div>
+            <div class=3D"chart-box"><canvas id=3D"ch-rep-fac"></canvas></d=
+iv>
+          </div>
+          <div class=3D"panel">
+            <div class=3D"panel-title">Unidades vendidas</div>
+            <div class=3D"panel-sub">Evoluci=C3=B3n S1=E2=80=93S21</div>
+            <div class=3D"chart-box"><canvas id=3D"ch-rep-uni"></canvas></d=
+iv>
+          </div>
+        </div>
+
+        <div class=3D"panels-grid" style=3D"margin-bottom:1rem">
+          <div class=3D"panel">
+            <div class=3D"panel-title">Full Share</div>
+            <div class=3D"panel-sub">% de unidades bajo log=C3=ADstica Full=
+ =E2=80=94 evoluci=C3=B3n S1=E2=80=93S21</div>
+            <div class=3D"chart-box"><canvas id=3D"ch-rep-full"></canvas></=
+div>
+          </div>
+          <div class=3D"panel">
+            <div class=3D"panel-title">CVR =E2=80=94 Tasa de conversi=C3=B3=
+n</div>
+            <div class=3D"panel-sub">% de visitas que terminan en compra (d=
+isponible desde S13)</div>
+            <div class=3D"chart-box"><canvas id=3D"ch-rep-cvr"></canvas></d=
+iv>
+          </div>
+        </div>
+
+        <!-- Productos m=C3=A1s vendidos -->
+        <div class=3D"panel">
+          <div class=3D"panel-title" style=3D"margin-bottom:4px">Productos =
+m=C3=A1s vendidos</div>
+          <div class=3D"panel-sub" style=3D"margin-bottom:1rem">Top publica=
+ciones del seller en todo el per=C3=ADodo =E2=80=94 ordenadas por facturaci=
+=C3=B3n total acumulada</div>
+          <div class=3D"tbl-wrap">
+            <table class=3D"tbl">
+              <thead><tr>
+                <th>#</th><th>Producto</th><th>Categor=C3=ADa</th>
+                <th>Fac. total</th><th>Unidades</th><th>CVR prom.</th><th>F=
+ull Share prom.</th><th>Semanas activo</th>
+              </tr></thead>
+              <tbody id=3D"report-items-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+</body></html>
+------MultipartBoundary--05Evd9KXlGU3XoYvd5H9iejWuONB5aN0KC0WrQHe4T----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap
+
+@charset "utf-8";
+
+@font-face { font-family: "DM Mono"; font-style: normal; font-weight: 400; =
+font-display: swap; src: url("https://fonts.gstatic.com/s/dmmono/v16/aFTU7P=
+B1QTsUX8KYthSQBLyM.woff2") format("woff2"); unicode-range: U+100-2BA, U+2BD=
+-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF, U+=
+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C=
+7F, U+A720-A7FF; }
+
+@font-face { font-family: "DM Mono"; font-style: normal; font-weight: 400; =
+font-display: swap; src: url("https://fonts.gstatic.com/s/dmmono/v16/aFTU7P=
+B1QTsUX8KYthqQBA.woff2") format("woff2"); unicode-range: U+0-FF, U+131, U+1=
+52-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206F, U=
++20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "DM Mono"; font-style: normal; font-weight: 500; =
+font-display: swap; src: url("https://fonts.gstatic.com/s/dmmono/v16/aFTR7P=
+B1QTsUX8KYvumzEY2tbZX9.woff2") format("woff2"); unicode-range: U+100-2BA, U=
++2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+329, U+1D00-1DBF=
+, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C6=
+0-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "DM Mono"; font-style: normal; font-weight: 500; =
+font-display: swap; src: url("https://fonts.gstatic.com/s/dmmono/v16/aFTR7P=
+B1QTsUX8KYvumzEYOtbQ.woff2") format("woff2"); unicode-range: U+0-FF, U+131,=
+ U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+329, U+2000-206=
+F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "DM Sans"; font-style: italic; font-weight: 400; =
+font-display: swap; src: url("https://fonts.gstatic.com/s/dmsans/v17/rP2rp2=
+ywxg089UriCZaSExd86J3t9jz86Mvy4qCRAL19DksVat-JDV36TGc5pg.woff2") format("wo=
+ff2"); unicode-range: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF=
+, U+304, U+308, U+329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A=
+0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "DM Sans"; font-style: italic; font-weight: 400; =
+font-display: swap; src: url("https://fonts.gstatic.com/s/dmsans/v17/rP2rp2=
+ywxg089UriCZaSExd86J3t9jz86Mvy4qCRAL19DksVat-JDV30TGc.woff2") format("woff2=
+"); unicode-range: U+0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC=
+, U+304, U+308, U+329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212,=
+ U+2215, U+FEFF, U+FFFD; }
+
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 300; =
+font-display: swap; src: url("https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2=
+ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2") format("woff2"); unicode-range=
+: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+32=
+9, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0,=
+ U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 300; =
+font-display: swap; src: url("https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2=
+ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2") format("woff2"); unicode-range: U=
++0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+32=
+9, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+F=
+FFD; }
+
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 400; =
+font-display: swap; src: url("https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2=
+ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2") format("woff2"); unicode-range=
+: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+32=
+9, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0,=
+ U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 400; =
+font-display: swap; src: url("https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2=
+ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2") format("woff2"); unicode-range: U=
++0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+32=
+9, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+F=
+FFD; }
+
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 500; =
+font-display: swap; src: url("https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2=
+ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2") format("woff2"); unicode-range=
+: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+32=
+9, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0,=
+ U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 500; =
+font-display: swap; src: url("https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2=
+ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2") format("woff2"); unicode-range: U=
++0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+32=
+9, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+F=
+FFD; }
+
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 600; =
+font-display: swap; src: url("https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2=
+ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6h9Q.woff2") format("woff2"); unicode-range=
+: U+100-2BA, U+2BD-2C5, U+2C7-2CC, U+2CE-2D7, U+2DD-2FF, U+304, U+308, U+32=
+9, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0,=
+ U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
+@font-face { font-family: "DM Sans"; font-style: normal; font-weight: 600; =
+font-display: swap; src: url("https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2=
+ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2") format("woff2"); unicode-range: U=
++0-FF, U+131, U+152-153, U+2BB-2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+32=
+9, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+F=
+FFD; }
+------MultipartBoundary--05Evd9KXlGU3XoYvd5H9iejWuONB5aN0KC0WrQHe4T----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-b52130e9-4403-4517-94e1-84064fbecdf3@mhtml.blink
+
+@charset "utf-8";
+
+@import url("https://fonts.googleapis.com/css2?family=3DDM+Sans:ital,wght@0=
+,300;0,400;0,500;0,600;1,400&family=3DDM+Mono:wght@400;500&display=3Dswap")=
+;
+
+* { margin: 0px; padding: 0px; box-sizing: border-box; }
+
+:root { --bg: #F4F3EF; --surface: #FFFFFF; --surface2: #EEECEA; --surface3:=
+ #E4E2DC; --border: #DDD9D0; --border2: #C8C4BA; --text: #1A1916; --text2: =
+#6A6860; --text3: #9A9890; --blue: #1F4E79; --blue2: #2E75B6; --blue3: #5B9=
+BD5; --blue4: #BDD7EE; --blue5: #EBF3FB; --green: #2E5E1E; --green2: #54823=
+5; --green3: #A9D18E; --green4: #E2EFDA; --red: #7B1010; --red2: #C00000; -=
+-red3: #FFCCCC; --red4: #FFF0F0; --amber: #7A4F00; --amber2: #BF9000; --amb=
+er3: #FFE082; --amber4: #FFF8E1; --radius: 12px; --radius2: 8px; --radius3:=
+ 6px; font-family: "DM Sans", sans-serif; }
+
+body { background: var(--bg); color: var(--text); min-height: 100vh; font-s=
+ize: 14px; line-height: 1.5; }
+
+#login-screen { position: fixed; inset: 0px; background: linear-gradient(13=
+5deg, rgb(13, 45, 74) 0%, rgb(31, 78, 121) 60%, rgb(46, 117, 182) 100%); di=
+splay: flex; align-items: center; justify-content: center; z-index: 1000; }
+
+.login-wrap { display: flex; flex-direction: column; align-items: center; g=
+ap: 2rem; }
+
+.login-logo { text-align: center; }
+
+.login-logo-mark { font-size: 32px; font-weight: 600; color: rgb(255, 255, =
+255); letter-spacing: -1px; line-height: 1; }
+
+.login-logo-sub { font-size: 13px; color: rgba(255, 255, 255, 0.5); margin-=
+top: 4px; letter-spacing: 1px; text-transform: uppercase; }
+
+.login-box { background: white; border-radius: 16px; padding: 2rem 2rem 1.5=
+rem; width: 340px; box-shadow: rgba(0, 0, 0, 0.3) 0px 24px 80px; }
+
+.login-box h2 { font-size: 16px; font-weight: 600; color: var(--text); marg=
+in-bottom: 1.5rem; }
+
+.field { margin-bottom: 1rem; }
+
+.field label { font-size: 11px; font-weight: 500; color: var(--text2); disp=
+lay: block; margin-bottom: 5px; text-transform: uppercase; letter-spacing: =
+0.5px; }
+
+.field input { width: 100%; padding: 10px 12px; border: 1.5px solid var(--b=
+order); border-radius: var(--radius3); font-size: 14px; font-family: inheri=
+t; outline: none; transition: border-color 0.15s; color: var(--text); backg=
+round: white; }
+
+.field input:focus { border-color: var(--blue2); }
+
+.login-btn { width: 100%; padding: 11px; background: var(--blue); color: wh=
+ite; border-width: medium; border-style: none; border-color: currentcolor; =
+border-image: initial; border-radius: var(--radius3); font-size: 14px; font=
+-weight: 500; cursor: pointer; font-family: inherit; transition: background=
+ 0.15s; margin-top: 0.5rem; }
+
+.login-btn:hover { background: var(--blue2); }
+
+.login-error { color: var(--red2); font-size: 12px; margin-top: 10px; text-=
+align: center; display: none; }
+
+.login-note { font-size: 11px; color: var(--text3); text-align: center; mar=
+gin-top: 1rem; }
+
+#app { display: none; min-height: 100vh; flex-direction: column; }
+
+.topbar { background: var(--blue); color: white; height: 54px; display: fle=
+x; align-items: center; justify-content: space-between; padding: 0px 1.5rem=
+; position: sticky; top: 0px; z-index: 100; box-shadow: rgba(0, 0, 0, 0.2) =
+0px 2px 12px; }
+
+.topbar-left { display: flex; align-items: center; gap: 12px; }
+
+.topbar-brand { font-size: 16px; font-weight: 600; letter-spacing: -0.3px; =
+}
+
+.topbar-brand span { opacity: 0.5; font-weight: 400; font-size: 13px; margi=
+n-left: 4px; }
+
+.topbar-right { display: flex; align-items: center; gap: 10px; }
+
+.week-select { background: rgba(255, 255, 255, 0.12); border: 1px solid rgb=
+a(255, 255, 255, 0.25); color: white; border-radius: var(--radius3); paddin=
+g: 6px 10px; font-size: 12px; font-family: inherit; cursor: pointer; outlin=
+e: none; }
+
+.week-select option { color: var(--text); background: white; }
+
+.topbar-btn { background: rgba(255, 255, 255, 0.12); border: 1px solid rgba=
+(255, 255, 255, 0.2); color: white; padding: 6px 14px; border-radius: var(-=
+-radius3); font-size: 12px; cursor: pointer; font-family: inherit; transiti=
+on: background 0.15s; }
+
+.topbar-btn:hover { background: rgba(255, 255, 255, 0.2); }
+
+.loading-badge { background: rgba(255, 255, 255, 0.15); border-radius: 100p=
+x; padding: 4px 10px; font-size: 11px; color: rgba(255, 255, 255, 0.8); dis=
+play: none; align-items: center; gap: 6px; }
+
+.loading-badge.show { display: flex; }
+
+.spin { width: 10px; height: 10px; border-width: 1.5px; border-style: solid=
+; border-color: white rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.3); bo=
+rder-image: initial; border-radius: 50%; animation: 0.7s linear 0s infinite=
+ normal none running spin; }
+
+@keyframes spin {=20
+  100% { transform: rotate(360deg); }
+}
+
+.nav { background: var(--surface); border-bottom: 1px solid var(--border); =
+display: flex; padding: 0px 1.5rem; overflow-x: auto; }
+
+.nav-tab { padding: 13px 16px; font-size: 13px; font-weight: 500; color: va=
+r(--text2); cursor: pointer; border-bottom: 2px solid transparent; transiti=
+on: 0.15s; white-space: nowrap; margin-bottom: -1px; user-select: none; }
+
+.nav-tab:hover { color: var(--text); }
+
+.nav-tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+.main { padding: 1.25rem 1.5rem; flex: 1 1 0%; }
+
+.section { display: none; }
+
+.section.active { display: block; }
+
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(1=
+40px, 1fr)); gap: 10px; margin-bottom: 1.25rem; }
+
+.kpi { background: var(--surface); border: 1px solid var(--border); border-=
+radius: var(--radius2); padding: 1rem 1.1rem; }
+
+.kpi-label { font-size: 10px; font-weight: 500; color: var(--text2); text-t=
+ransform: uppercase; letter-spacing: 0.6px; margin-bottom: 6px; }
+
+.kpi-val { font-size: 24px; font-weight: 600; color: var(--text); letter-sp=
+acing: -0.5px; line-height: 1.1; }
+
+.kpi-wow { font-size: 12px; font-weight: 500; margin-top: 5px; }
+
+.up { color: var(--green2); }
+
+.down { color: var(--red2); }
+
+.flat { color: var(--text3); }
+
+.panels-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; ma=
+rgin-bottom: 1rem; }
+
+.panel { background: var(--surface); border: 1px solid var(--border); borde=
+r-radius: var(--radius); padding: 1.1rem; }
+
+.panel-full { grid-column: 1 / -1; }
+
+.panel-title { font-size: 13px; font-weight: 600; color: var(--text); margi=
+n-bottom: 4px; }
+
+.panel-sub { font-size: 11px; color: var(--text2); margin-bottom: 1rem; }
+
+.chart-box { position: relative; height: 210px; }
+
+.tbl-wrap { overflow-x: auto; border-radius: var(--radius3); border: 1px so=
+lid var(--border); }
+
+.tbl { width: 100%; border-collapse: collapse; font-size: 12px; }
+
+.tbl th { text-align: left; padding: 8px 10px; font-size: 10px; font-weight=
+: 500; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5p=
+x; border-bottom: 1px solid var(--border); background: var(--surface2); whi=
+te-space: nowrap; }
+
+.tbl td { padding: 8px 10px; border-bottom: 1px solid var(--border); vertic=
+al-align: middle; }
+
+.tbl tr:last-child td { border-bottom-width: medium; border-bottom-style: n=
+one; border-bottom-color: currentcolor; }
+
+.tbl tr:hover td { background: var(--surface2); }
+
+.mono { font-family: "DM Mono", monospace; font-size: 11px; }
+
+.bold { font-weight: 600; }
+
+.muted { color: var(--text2); }
+
+.badge { display: inline-block; padding: 2px 7px; border-radius: 4px; font-=
+size: 11px; font-weight: 500; white-space: nowrap; }
+
+.b-up { background: var(--green4); color: var(--green); }
+
+.b-down { background: var(--red3); color: var(--red2); }
+
+.b-flat { background: var(--amber4); color: var(--amber); }
+
+.b-blue { background: var(--blue5); color: var(--blue2); }
+
+.b-gray { background: var(--surface2); color: var(--text2); }
+
+.filters { display: flex; gap: 8px; margin-bottom: 1rem; flex-wrap: wrap; a=
+lign-items: center; }
+
+.filters input, .filters select { padding: 7px 10px; border: 1px solid var(=
+--border2); border-radius: var(--radius3); font-size: 12px; font-family: in=
+herit; outline: none; background: white; color: var(--text); transition: bo=
+rder-color 0.15s; }
+
+.filters input:focus, .filters select:focus { border-color: var(--blue2); }
+
+.filters input { min-width: 180px; flex: 1 1 0%; }
+
+.concl { margin-top: 1rem; }
+
+.concl-item { padding: 10px 14px; margin-bottom: 6px; border-radius: var(--=
+radius3); border-left: 3px solid var(--blue2); background: var(--blue5); }
+
+.concl-item:nth-child(2n) { border-left-color: var(--blue3); background: va=
+r(--surface); }
+
+.concl-title { font-size: 12px; font-weight: 600; color: var(--blue); margi=
+n-bottom: 2px; }
+
+.concl-text { font-size: 12px; color: var(--text2); line-height: 1.5; }
+
+.hotsale-banner { background: linear-gradient(90deg, rgb(255, 107, 53), rgb=
+(255, 140, 66)); color: white; padding: 8px 14px; border-radius: var(--radi=
+us3); font-size: 12px; font-weight: 500; margin-bottom: 1rem; display: flex=
+; align-items: center; gap: 8px; }
+
+.empty { text-align: center; padding: 3rem 1rem; color: var(--text3); }
+
+.empty-icon { font-size: 2rem; margin-bottom: 8px; }
+
+.empty-text { font-size: 13px; }
+
+@media (max-width: 640px) {
+  .panels-grid { grid-template-columns: 1fr; }
+  .panel-full { grid-column: 1; }
+  .main { padding: 1rem; }
+  .topbar { padding: 0px 1rem; }
+}
+------MultipartBoundary--05Evd9KXlGU3XoYvd5H9iejWuONB5aN0KC0WrQHe4T------
