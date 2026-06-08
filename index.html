@@ -979,7 +979,6 @@ function renderSellerReport() {
   const itemsSorted=Object.entries(byItem).map(([id,d])=>({id,...d,cvr_avg:d.cvr_n?d.cvr_sum/d.cvr_n:null,full_avg:d.full_n?d.full_sum/d.full_n:null})).sort((a,b)=>b.fac-a.fac).slice(0,15);
   document.getElementById('report-items-tbody').innerHTML=itemsSorted.length?itemsSorted.map((it,i)=>`<tr><td class="muted mono">${i+1}</td><td class="bold" style="color:var(--blue);font-size:12px">${it.title?.length>60?it.title.substring(0,58)+'…':it.title}</td><td><span class="badge b-blue" style="font-size:10px">${it.cat||'—'}</span></td><td class="mono bold">${fMraw(it.fac)}</td><td class="mono">${fN(it.uni)}</td><td>${it.cvr_avg?(it.cvr_avg*100).toFixed(2)+'%':'—'}</td><td><span class="badge ${(it.full_avg||0)>=0.5?'b-up':(it.full_avg||0)>=0.2?'b-blue':'b-gray'}">${fP(it.full_avg,0)}</span></td><td class="mono muted">${it.sems}</td></tr>`).join(''):'<tr><td colspan="8" style="text-align:center;padding:1rem;color:var(--text3)">Sin publicaciones</td></tr>';
 }
-}
 </script>
 
 
