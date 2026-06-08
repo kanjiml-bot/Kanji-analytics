@@ -942,6 +942,41 @@ function renderItems() {
         </tr>`;
       }).join('')
     : '<tr><td colspan="9" class="empty"><div class="empty-text">Sin datos para esta semana</div></td></tr>';
+function renderSellerReport() {
+  const seller = document.getElementById('report-seller-sel').value;
+  const empty = document.getElementById('seller-report-empty');
+  const content = document.getElementById('seller-report-content');
+  if (!seller) { empty.style.display='block'; content.style.display='none'; return; }
+  empty.style.display='none'; content.style.display='block';
+  const selData = DATA.sellers.filter(r=>r.seller===seller).sort((a,b)=>a.semana-b.semana);
+  const labels = selData.map(r=>'S'+r.semana);
+  const facTotal = selData.reduce((a,r)=>a+(r.facturacion_lc||0),0);
+  const uniTotal = selData.reduce((a,r)=>a+(r.unidades||0),0);
+  const fullArr = selData.filter(r=>r.full_share);
+  const fullAvg = fullArr.length ? fullArr.reduce((s,r)=>s+r.full_share,0)/fullArr.length : 0;
+  const cvrArr = selData.filter(r=>r.cvr&&r.cvr<0.5);
+  const cvrAvg = cvrArr.length ? cvrArr.reduce((s,r)=>s+r.cvr,0)/cvrArr.length : null;
+  const lastRow = selData[selData.length-1];
+  const prevRow = selData[selData.length-2];
+  const wowFac = lastRow&&prevRow&&prevRow.facturacion_lc ? (lastRow.facturacion_lc-prevRow.facturacion_lc)/prevRow.facturacion_lc : null;
+  document.getElementById('report-kpis').innerHTML = [
+    {label:'Fac. acumulada',val:'$'+Math.round(facTotal/1e6)+'M',wow:null},
+    {label:'Unidades acumuladas',val:fN(uniTotal),wow:null},
+    {label:'Última semana',val:fMraw(lastRow?.facturacion_lc),wow:wowFac},
+    {label:'Full Share prom.',val:fP(fullAvg),wow:null},
+    {label:'CVR promedio',val:cvrAvg?fP(cvrAvg,2):'—',wow:null},
+    {label:'Semanas activo',val:selData.length+' de 21',wow:null},
+  ].map(k=>`<div class="kpi"><div class="kpi-label">${k.label}</div><div class="kpi-val">${k.val}</div>${k.wow!=null?`<div class="kpi-wow ${wowColor(k.wow)}">${fWow(k.wow)} vs. sem. ant.</div>`:''}</div>`).join('');
+  ['ch-rep-fac','ch-rep-uni','ch-rep-full','ch-rep-cvr'].forEach(id=>{if(charts[id]){try{charts[id].destroy();}catch(e){}delete charts[id];}});
+  mkChart('ch-rep-fac','bar',labels,[{data:selData.map(r=>r.facturacion_lc?+(r.facturacion_lc/1e6).toFixed(1):null),backgroundColor:'#BDD7EE',borderRadius:4}],{fmt:v=>'$'+v+'M',yFmt:v=>'$'+v+'M'});
+  mkChart('ch-rep-uni','bar',labels,[{data:selData.map(r=>r.unidades?Math.round(r.unidades):null),backgroundColor:'#A9D18E',borderRadius:4}],{yFmt:v=>v?.toLocaleString()});
+  mkChart('ch-rep-full','line',labels,[{data:selData.map(r=>r.full_share?+(r.full_share*100).toFixed(1):null),borderColor:'#2E75B6',backgroundColor:'#BDD7EE44',tension:0.3,fill:true,pointBackgroundColor:'#2E75B6',pointRadius:3,spanGaps:true}],{fmt:v=>v+'%',yFmt:v=>v+'%'});
+  mkChart('ch-rep-cvr','line',labels,[{data:selData.map(r=>(r.cvr&&r.cvr<0.5)?+(r.cvr*100).toFixed(2):null),borderColor:'#548235',backgroundColor:'#A9D18E44',tension:0.3,fill:true,pointBackgroundColor:'#548235',pointRadius:3,spanGaps:true}],{fmt:v=>v+'%',yFmt:v=>v+'%'});
+  const selItems=DATA.items.filter(r=>r.SELLER===seller);
+  const byItem={};
+  selItems.forEach(r=>{if(!byItem[r.ID])byItem[r.ID]={title:r.TITLE,cat:r.CATEGORIA,fac:0,uni:0,cvr_sum:0,cvr_n:0,full_sum:0,full_n:0,sems:0};byItem[r.ID].fac+=r.facturacion_lc||0;byItem[r.ID].uni+=r.unidades||0;if(r.cvr&&r.cvr<0.5){byItem[r.ID].cvr_sum+=r.cvr;byItem[r.ID].cvr_n++;}if(r.full_share!=null){byItem[r.ID].full_sum+=r.full_share;byItem[r.ID].full_n++;}byItem[r.ID].sems++;});
+  const itemsSorted=Object.entries(byItem).map(([id,d])=>({id,...d,cvr_avg:d.cvr_n?d.cvr_sum/d.cvr_n:null,full_avg:d.full_n?d.full_sum/d.full_n:null})).sort((a,b)=>b.fac-a.fac).slice(0,15);
+  document.getElementById('report-items-tbody').innerHTML=itemsSorted.length?itemsSorted.map((it,i)=>`<tr><td class="muted mono">${i+1}</td><td class="bold" style="color:var(--blue);font-size:12px">${it.title?.length>60?it.title.substring(0,58)+'…':it.title}</td><td><span class="badge b-blue" style="font-size:10px">${it.cat||'—'}</span></td><td class="mono bold">${fMraw(it.fac)}</td><td class="mono">${fN(it.uni)}</td><td>${it.cvr_avg?(it.cvr_avg*100).toFixed(2)+'%':'—'}</td><td><span class="badge ${(it.full_avg||0)>=0.5?'b-up':(it.full_avg||0)>=0.2?'b-blue':'b-gray'}">${fP(it.full_avg,0)}</span></td><td class="mono muted">${it.sems}</td></tr>`).join(''):'<tr><td colspan="8" style="text-align:center;padding:1rem;color:var(--text3)">Sin publicaciones</td></tr>';
 }
 </script>
 
